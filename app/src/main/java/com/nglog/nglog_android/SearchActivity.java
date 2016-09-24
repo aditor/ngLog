@@ -1,14 +1,19 @@
 package com.nglog.nglog_android;
 
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,68 +28,26 @@ public class SearchActivity extends AppCompatActivity {
 
     private Context context = this;
 
-
-    @Override
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-
-
-        Button searchButton = (Button) findViewById(R.id.search_button);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //onSearchItem();
-            }
-        });
+         Toolbar my_toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+         setSupportActionBar(my_toolbar);
+         getSupportActionBar().setTitle(R.string.my_tb_title);
 
     }
 
-   /* public void onClickSearchItem(View view) {
-        final Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialog_layout);
-        nameInput = (EditText)dialog.findViewById(R.id.edit_name);
-        final Spinner initialSpinner = (Spinner) dialog.findViewById(R.id.spinner_initial);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-        final LinearLayout wholelist = (LinearLayout) findViewById(R.id.wholelist);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
 
-        button = (Button) findViewById(R.id.Adder);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Button OKbutton = (Button) dialog.findViewById(R.id.OK);
-                OKbutton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Item instance = new Item(nameInput.getText().toString(),
-                                Integer.parseInt(initialSpinner.getSelectedItem().toString()),
-                                Integer.parseInt(changeSpinner.getSelectedItem().toString()),
-                                timeSpinner.getSelectedItem().toString(), Level.LOW);
-                        inventoryList.add(instance);
-
-                        wholelist.addView(createNewTextView(nameInput.getText().toString()));
-
-                        Toast.makeText(getApplicationContext(), "Item has been added", Toast.LENGTH_SHORT).show();
+        return super.onCreateOptionsMenu(menu);
+    }
 
 
-                        dialog.dismiss();
-                    }
-                });
-
-                dialog.show();
-            }
-        });
-    }*/
-
-    /*private TextView createNewTextView(String text) {
-        final TextView textView = new TextView(this);
-        textView.setText(text);
-        return textView;
-    }*/
 }
 
 

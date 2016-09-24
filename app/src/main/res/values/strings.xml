@@ -15,5 +15,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_search2">SearchActivity2</string>
+    <string name="searchable">Search serial number</string>
+    <string name="menu_search">Search</string>
+    <string name="my_tb_title">Search serial number</string>
+    <string name="title_activity_main_search">MainSearchActivity</string>
 </resources>
