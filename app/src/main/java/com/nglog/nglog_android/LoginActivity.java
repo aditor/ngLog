@@ -38,7 +38,14 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
+
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+    private String BASE = "/home/";
+    private String REG = "register/";
+    private String LOGIN = "login/";
+    private String LOGOUT = "logout/";
+
 
     /**
      * Id to identity READ_CONTACTS permission request.
