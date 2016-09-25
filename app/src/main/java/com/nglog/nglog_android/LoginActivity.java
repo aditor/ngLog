@@ -29,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -48,11 +49,12 @@ import static android.Manifest.permission.READ_CONTACTS;
 
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-    private String BASE = "/home/";
+    private String login_url = "http://127.0.0.1:8000/auth/login/";
+    //private String BASE = "/home/";
     private String REG = "register/";
     private String LOGIN = "login/";
     private String LOGOUT = "logout/";
-    RequestQueue queue;
+    static RequestQueue queue;
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -82,24 +84,24 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        queue = Volley.newRequestQueue(this);
+//        queue = Volley.newRequestQueue(this);
 
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        //mTextView.setText("Response is: "+ response.substring(0,500));
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-               // mTextView.setText("That didn't work!");
-            }
-        });
-
-        queue.add(stringRequest);
+//        // Request a string response from the provided URL.
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        // Display the first 500 characters of the response string.
+//                        //mTextView.setText("Response is: "+ response.substring(0,500));
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//               // mTextView.setText("That didn't work!");
+//            }
+//        });
+//
+//        queue.add(stringRequest);
 
 
 
@@ -130,6 +132,39 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
+
+
+    private void attemptLogin(String username, String password) {
+
+        int method = Request.Method.POST;
+        StringRequest request = new StringRequest(method, login_url,
+
+                // response listener implementation
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // if possible check that
+                        // parse as json object
+                        // get token (key is "auth_token")
+                        // put it in intent and start next activity
+                    }
+                },
+
+                // error listener implmentation
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "please try again", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+        queue.add(request);
+    }
+
+
+
+
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {

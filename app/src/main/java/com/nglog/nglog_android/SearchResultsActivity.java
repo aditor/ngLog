@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class SearchResultsActivity extends AppCompatActivity {
+    String query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,6 @@ public class SearchResultsActivity extends AppCompatActivity {
         Toolbar my_toolbar = (Toolbar) findViewById(R.id.search_results_toolbar);
         setSupportActionBar(my_toolbar);
 
-        String query = new String();
         Intent searchIntent = getIntent();
         if(Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
             query = searchIntent.getStringExtra(SearchManager.QUERY);
@@ -37,8 +37,8 @@ public class SearchResultsActivity extends AppCompatActivity {
             }
         }
 
-        ListView listView_main = (ListView) findViewById(R.id.listView_main);
+        ListView listView_searchResults = (ListView) findViewById(R.id.listView_searchResults);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, searchResults);
-        listView_main.setAdapter(adapter);
+        listView_searchResults.setAdapter(adapter);
     }
 }

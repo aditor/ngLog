@@ -48,7 +48,7 @@
         <item>1144657563</item>
         <item>6423535755</item>
     </string-array>
-
+    <string name="title_activity_test">TestActivity</string>
 
 
 </resources>
