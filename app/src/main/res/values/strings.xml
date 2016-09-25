@@ -19,9 +19,36 @@
     <string name="menu_search">Search</string>
     <string name="my_tb_title">Search serial number</string>
     <string name="title_activity_main_search">MainSearchActivity</string>
+    <color name="white">#FFFFFF</color>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="serials">
+        <item>5739573948</item>
+        <item>9384575938</item>
+        <item>0923845735</item>
+        <item>9384573948</item>
+        <item>4304823298</item>
+        <item>0923347384</item>
+        <item>2324324245</item>
+        <item>3434523445</item>
+        <item>3635265345</item>
+        <item>5734636565</item>
+        <item>4352436345</item>
+        <item>3452645435</item>
+        <item>3563452464</item>
+        <item>8647574634</item>
+        <item>3645346377</item>
+        <item>5868474565</item>
+        <item>2342346345</item>
+        <item>2246563455</item>
+        <item>1144657563</item>
+        <item>6423535755</item>
+    </string-array>
+
+
+
 </resources>

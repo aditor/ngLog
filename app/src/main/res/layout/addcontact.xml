@@ -23,7 +23,8 @@ android:weightSum="1">
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true">
         </TabWidget>
 
         <FrameLayout
@@ -38,7 +39,7 @@ android:weightSum="1">
                 android:orientation="vertical">
 
                 <TextView
-                    android:text="TextView"
+                    android:text="Contacts"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView3"

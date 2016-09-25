@@ -22,6 +22,10 @@ public class FirstFragmentLogbook extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.first_layout_logbook, container, false);
         return myView;
+
+
+
+
     }
 
 

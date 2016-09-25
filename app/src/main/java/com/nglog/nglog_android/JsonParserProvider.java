@@ -3,11 +3,13 @@ package com.nglog.nglog_android;
 import android.app.SearchManager;
 import android.app.VoiceInteractor;
 import android.content.ContentProvider;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
 import android.provider.SyncStateContract;
+import android.support.annotation.Nullable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,15 +27,38 @@ import okhttp3.Response;
 /**
  * Created by Adi on 2016-09-24.
  */
-public abstract class JsonParser extends ContentProvider {
+public class JsonParserProvider extends ContentProvider {
+
+    @Nullable
+    @Override
+    public Uri insert(Uri uri, ContentValues values) {
+        return null;
+    }
+
+    @Override
+    public int delete(Uri uri, String selection, String[] selectionArgs) {
+        return 0;
+    }
+
+    @Override
+    public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+        return 0;
+    }
 
     @Override
     public boolean onCreate() {
         return false;
     }
 
+    @Override
+    public String getType(Uri uri){
+        return "";
+    }
+
+
     List<String> ret = new ArrayList<String>();
 
+    @Override
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
 

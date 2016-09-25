@@ -1,5 +1,6 @@
 package com.nglog.nglog_android;
 
+import android.app.Dialog;
 import android.app.FragmentManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,8 +20,12 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TabHost;
 import android.app.Activity;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -62,9 +67,16 @@ public class Page3main extends AppCompatActivity implements NavigationView.OnNav
         tabHost.addTab(tabSpec);
 
         final Button addBtn = (Button) findViewById(R.id.btnAdd);
+
+        final LinearLayout contlist = (LinearLayout) findViewById(R.id.contlist);
+
+
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                contlist.addView(createNewButtonView(nameTxt.getText().toString()));
+
+
                 Toast.makeText(getApplicationContext(), "Contact Created!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -114,6 +126,17 @@ public class Page3main extends AppCompatActivity implements NavigationView.OnNav
 
     }
 
+    private TextView createNewTextView(String text) {
+        final TextView textView = new TextView(this);
+        textView.setText(text);
+        return textView;
+    }
+
+    private Button createNewButtonView(String text) {
+        final Button button = new Button(this);
+        button.setText(text);
+        return button;
+    }
 
     @Override
     public void onBackPressed() {
